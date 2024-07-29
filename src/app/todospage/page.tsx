@@ -15,9 +15,5 @@ export default async function TodoPage() {
   //   const hardcodedTodo = await getHardcodedTodos();
   //   const hardcodedTodo1 = await getHardcodedTodos();
 
-  return (
-    <div>
-      Todo count: {todo1.length} <p>{todo3.title}</p>
-    </div>
-  );
+  return <div>Todo count: {todo1.length}</div>;
 }
