@@ -8,7 +8,24 @@ type Todo = {
 
 export async function getTodos() {
   await wait(2000);
-  return fetch(`${process.env.API_URL}/todos`)
+  return fetch(`${process.env.API_URL}/todos`, { cache: "no-store" })
+    .then((res) => res.json())
+    .then((data) => data as Todo[]);
+}
+
+export async function getTodosTagged() {
+  await wait(2000);
+  return fetch(`${process.env.API_URL}/todos/3`, {
+    next: { tags: ["Todo", "1"] },
+  })
+    .then((res) => res.json())
+    .then((data) => data as Todo[]);
+}
+
+export async function revalidatedTodos() {
+  await wait(2000);
+  // Revalidate after each 10 seconds
+  return fetch(`${process.env.API_URL}/todos/2`, { next: { revalidate: 10 } })
     .then((res) => res.json())
     .then((data) => data as Todo[]);
 }
@@ -29,6 +46,6 @@ export const getHardcodedTodos = cache(() => {
 
 function wait(duration: number) {
   return new Promise((resolve) => {
-    setTimeout(resolve, duration);
+    setTimeout(resolve, 0);
   });
 }
