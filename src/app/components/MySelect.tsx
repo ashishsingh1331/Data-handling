@@ -1,0 +1,15 @@
+"use client";
+import { getTodos } from "@/api/todos";
+import Select from "react-select";
+
+export default function MySelect() {
+  getTodos();
+  return (
+    <Select
+      options={[
+        { value: "1", label: "1" },
+        { value: "2", label: "2" },
+      ]}
+    />
+  );
+}
