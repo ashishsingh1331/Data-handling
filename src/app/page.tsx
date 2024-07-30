@@ -1,11 +1,11 @@
-import Link from "next/link";
-import RandomNumber from "./components/RandomNumber";
+import { cookies } from "next/headers";
+import { headers } from "next/headers";
+export default function Home({ searchParams }: { searchParams: any }) {
+  const c = cookies().get("Ashishcookie");
 
-export default function Home() {
-  return (
-    <h1>
-      <Link href="/todos">Todos</Link>
-      <RandomNumber />
-    </h1>
-  );
+  console.log(c);
+  const h = headers().get("User-Agent");
+  console.log(h);
+
+  return <h1>Hi</h1>;
 }
