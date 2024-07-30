@@ -9,9 +9,16 @@ type Todo = {
 
 export async function getTodos() {
   await wait(2000);
-  return fetch(`${process.env.API_URL}/todos`, { cache: "no-store" })
+  return fetch(`${process.env.API_URL}/todos`)
     .then((res) => res.json())
     .then((data) => data as Todo[]);
+}
+
+export async function getTodo(todoId: string) {
+  await wait(2000);
+  return fetch(`${process.env.API_URL}/todos/${todoId}`)
+    .then((res) => res.json())
+    .then((data) => data as Todo);
 }
 
 export async function getTodosTagged() {
