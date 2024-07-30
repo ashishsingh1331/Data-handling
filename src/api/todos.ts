@@ -50,4 +50,3 @@ function wait(duration: number) {
     setTimeout(resolve, 0);
   });
 }
-r;

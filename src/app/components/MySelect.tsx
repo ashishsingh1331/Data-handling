@@ -3,7 +3,6 @@ import { getTodos } from "@/api/todos";
 import Select from "react-select";
 
 export default function MySelect() {
-  getTodos();
   return (
     <Select
       options={[
