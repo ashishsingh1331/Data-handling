@@ -9,7 +9,7 @@ type Todo = {
 
 export async function getTodos() {
   await wait(2000);
-  return fetch(`${process.env.API_URL}/todos`)
+  return fetch(`${process.env.API_URL}/todos`, { cache: "no-store" })
     .then((res) => res.json())
     .then((data) => data as Todo[]);
 }

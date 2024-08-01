@@ -1,5 +1,4 @@
 import React from "react";
-import createTodoAction from "../actions/createTodoAction";
 
 export default function CreateTodoForm() {
   return (
