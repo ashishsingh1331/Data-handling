@@ -52,8 +52,8 @@ export const getHardcodedTodos = cache(() => {
   });
 });
 
-function wait(duration: number) {
+export function wait(duration: number) {
   return new Promise((resolve) => {
-    setTimeout(resolve, 0);
+    setTimeout(resolve, duration);
   });
 }
