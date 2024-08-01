@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { headers } from "next/headers";
 import TodoForm from "./components/TodoForm";
+import TodoItem from "./components/TodoItem";
 type Todo = {
   id: number;
   title: string;
@@ -37,7 +38,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
       <TodoForm />
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
+          <TodoItem key={todo.id} {...todo} />
         ))}
       </ul>
     </>

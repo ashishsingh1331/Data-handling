@@ -16,3 +16,16 @@ export async function createTodo(formData: FormData) {
   }).then((res) => res.json());
   revalidatePath("/");
 }
+
+export async function toggleTodo(id: number, completed: boolean) {
+  const data = await fetch(`http://localhost:3001/todos/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      completed,
+    }),
+  }).then((res) => res.json());
+  revalidatePath("/");
+}
