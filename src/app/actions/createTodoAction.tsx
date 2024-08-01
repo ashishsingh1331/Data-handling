@@ -18,6 +18,7 @@ export async function createTodo(formData: FormData) {
 }
 
 export async function toggleTodo(id: number, completed: boolean) {
+  await wait(2000);
   const data = await fetch(`http://localhost:3001/todos/${id}`, {
     method: "PATCH",
     headers: {
@@ -28,4 +29,10 @@ export async function toggleTodo(id: number, completed: boolean) {
     }),
   }).then((res) => res.json());
   revalidatePath("/");
+}
+
+async function wait(duration: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, duration);
+  });
 }

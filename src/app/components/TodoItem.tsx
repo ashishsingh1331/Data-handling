@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useTransition } from "react";
 import { toggleTodo } from "../actions/createTodoAction";
 
 export default function TodoItem({
@@ -11,14 +11,19 @@ export default function TodoItem({
   title: string;
   completed: boolean;
 }) {
+  const [isPending, startTransition] = useTransition();
+
   return (
     <li>
       <label>
         <input
           type="checkbox"
-          defaultChecked={completed}
+          disabled={isPending}
+          checked={completed}
           onChange={async (e) => {
-            await toggleTodo(id, e.target.checked);
+            startTransition(async () => {
+              await toggleTodo(id, e.target.checked);
+            });
           }}
         />
         {title}

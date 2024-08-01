@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { headers } from "next/headers";
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
+import SelectAllButton from "./components/SelectAllButton";
 type Todo = {
   id: number;
   title: string;
@@ -36,6 +37,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
     <>
       <h1>Todo List</h1>
       <TodoForm />
+      <SelectAllButton ids={todos.map((todo) => todo.id)} />
       <ul>
         {todos.map((todo) => (
           <TodoItem key={todo.id} {...todo} />
