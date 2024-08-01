@@ -3,6 +3,7 @@ import { create } from "domain";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { headers } from "next/headers";
+import TodoForm from "./components/TodoForm";
 type Todo = {
   id: number;
   title: string;
@@ -33,11 +34,7 @@ export default async function Home({ searchParams }: { searchParams: any }) {
   return (
     <>
       <h1>Todo List</h1>
-      <form action={createTodo}>
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" id="title" />
-        <button>Add</button>
-      </form>
+      <TodoForm />
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>{todo.title}</li>
