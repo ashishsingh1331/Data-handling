@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function DashboardLayout({
@@ -11,6 +12,10 @@ export default function DashboardLayout({
 }>) {
   return (
     <div>
+      <nav>
+        <Link href="/dashboard">Dashbaord</Link>
+        <Link href="/dashboard/test">Dashbaord test</Link>
+      </nav>
       {children}
       {analytics}
       {posts}
