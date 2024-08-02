@@ -7,15 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <nav
-          style={{ display: "flex", flexDirection: "column", gap: ".25rem" }}
-        >
-          <Link href="/">Home</Link>
-          <Link href="/team">Team</Link>
-        </nav>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
