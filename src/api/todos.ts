@@ -57,3 +57,16 @@ export function wait(duration: number) {
     setTimeout(resolve, duration);
   });
 }
+
+export async function createTodo(body: any) {
+  await wait(2000);
+  return fetch(`${process.env.API_URL}/todos`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((res) => res.json())
+    .then((data) => data as Todo[]);
+}

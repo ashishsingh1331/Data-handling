@@ -7,7 +7,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Link href="/">Home</Link> <Link href="/users">Users</Link>
+        {children}
+      </body>
     </html>
   );
 }

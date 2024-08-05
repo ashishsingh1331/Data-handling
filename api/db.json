@@ -39619,6 +39619,12 @@
       "id": 2,
       "title": "quis ut nam facilis et officia qui",
       "completed": false
+    },
+    {
+      "title": "This is a new post",
+      "body": "New body",
+      "userId:": 2,
+      "id": 3
     }
   ],
   "users": [
